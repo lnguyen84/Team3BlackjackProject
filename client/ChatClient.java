@@ -34,7 +34,7 @@ public class ChatClient extends AbstractClient
       String message = (String)arg0;
       
       // If we successfully logged in, tell the login controller.
-      if (message.equals("LoginSuccessful"))
+      if (message.equals("Login Successful"))
       {
         loginControl.loginSuccess();
       }
