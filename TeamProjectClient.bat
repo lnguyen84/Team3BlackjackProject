@@ -1,1 +1,1 @@
-java -cp .;ocsf.jar client.ClientGUI
+java -cp .;ocsf.jar team3Project.ClientGUI
