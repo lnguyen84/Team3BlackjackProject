@@ -72,9 +72,9 @@ public class LoginControl implements ActionListener
 			CardLayout cardLayout = (CardLayout)container.getLayout();
 			cardLayout.show(container, "4");
 
-			//Display contacts of the user
-			ContactPanel contactPanel = (ContactPanel)container.getComponent(3);
-			contactPanel.displayContacts(user, contacts);
+			//take user to startpanel
+			//StartPanel startPanel = (CardLayout)container.getLayout();
+			//contactPanel.displayContacts(user, contacts);
 		}
 
 		public void displayError(String error)

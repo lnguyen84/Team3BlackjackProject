@@ -35,22 +35,39 @@ public class ClientGUI extends JFrame
 		InitialControl ic = new InitialControl(container); 
 		LoginControl lc = new LoginControl(container, client); //Probably will want to pass in ChatClient here
 		CreateAccountControl cc = new CreateAccountControl(container,client);
+		StartControl sc = new StartControl(container,client);
+		ViewRulesControl vrp = new ViewRulesControl(container,client);
+		PlayerInfoControl pic = new PlayerInfoControl(container,client);
+		GameControl gc = new GameControl(container,client);
 
 		//Set the controllers in ChatClient
 	    client.setLoginControl(lc);
 	    client.setCreateControl(cc);
 	    
+	    // should this be server or client? if so, change 
+	    client.setStartControl(sc);
+	    client.setPlayerInfoControl(pic);
+	    
+	    client.setGameControl(gc);
+	    //server.setGameControl(gc);
+	    
 		// Create the four views. (need the controller to register with the Panels)
 		JPanel view1 = new InitialPanel(ic);
 		JPanel view2 = new LoginPanel(lc);
 		JPanel view3 = new CreateAccountPanel(cc);
-		JPanel view4 = new ContactPanel();
+		JPanel view4 = new StartPanel(sc);
+		JPanel view5 = new ViewRulesPanel(vrp);
+		JPanel view6 = new PlayerInfoPanel(pic);
+		JPanel view7 = new GamePanel(gc);
 
 		// Add the views to the card layout container.
 		container.add(view1, "1");
 		container.add(view2, "2");
 		container.add(view3, "3");
 		container.add(view4, "4");
+		container.add(view5, "5");
+		container.add(view6, "6");
+		container.add(view7, "7");
 
 		// Show the initial view in the card layout.
 		cardLayout.show(container, "1");

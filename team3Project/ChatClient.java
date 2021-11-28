@@ -10,13 +10,16 @@ public class ChatClient extends AbstractClient
 	private ArrayList<String> contacts;
 	private LoginControl lc;
 	private CreateAccountControl cc;
+	private StartControl sc;
+	private ViewRulesControl vrp;
+	private PlayerInfoControl pic;
+	private GameControl gc;
 
 	// Constructor
 	public ChatClient()
 	{
 		super("localhost",8300);
 	}
-
 
 	//Setter for login control
 	public void setLoginControl(LoginControl lc)
@@ -28,6 +31,30 @@ public class ChatClient extends AbstractClient
 	public void setCreateControl(CreateAccountControl cc)
 	{
 		this.cc = cc;
+	}
+	
+	//Setter for start control
+	public void setStartControl(StartControl sc)
+	{
+		this.sc = sc;
+	}
+	
+	//Setter for view rules control
+	public void setViewRulesControl(ViewRulesControl vrp)
+	{
+		this.vrp = vrp;
+	}
+	
+	//Setter for player information control
+	public void setPlayerInfoControl(PlayerInfoControl pic)
+	{
+		this.pic = pic;
+	}
+	
+	//Setter for game control
+	public void setGameControl(GameControl gc)
+	{
+		this.gc = gc;
 	}
 
 	//Getter for contacts
