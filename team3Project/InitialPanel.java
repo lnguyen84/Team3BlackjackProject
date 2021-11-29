@@ -7,7 +7,8 @@ public class InitialPanel extends JPanel
 {
 	private JButton login;
 	private JButton create;
-
+	private JButton connect;
+	
 	// Constructor for the initial panel.
 	public InitialPanel(InitialControl ic)
 	{
@@ -17,20 +18,39 @@ public class InitialPanel extends JPanel
 		// Create the login button.
 		login = new JButton("Log In");
 		login.addActionListener(ic);
-		JPanel loginBuffer = new JPanel();
-		loginBuffer.add(login);
-		
+	
 		// Create the create account button.
 		create = new JButton("Create");
 		create.addActionListener(ic);
-		JPanel createBuffer = new JPanel();
-		createBuffer.add(create);
+		
+		//new connect button added in order to connect after setting ip
+		connect = new JButton("Connect");
+		connect.addActionListener(ic);
+		
+		//panel to hold buttons
+		JPanel buttons = new JPanel();
+		
+		buttons.add(login);
+		buttons.add(create);
+		buttons.add(connect);
+		//adding ip selection
+		JMenuBar jmb = new JMenuBar();
+		JMenu jm = new JMenu("Config Options");
+		jmb.add(jm);
+		JMenuItem sethost = new JMenuItem("Config Connection");
+		sethost.addActionListener(ic);
+		
+		jm.add(sethost);
+	
+		buttons.add(sethost);
 
 		// Arrange the components in a grid.
 		JPanel grid = new JPanel(new GridLayout(3, 1, 5, 5));
-		grid.add(label);
-		grid.add(loginBuffer);
-		grid.add(createBuffer);
+		grid.add(label,BorderLayout.NORTH);
+		
+		grid.add(buttons,BorderLayout.SOUTH);
+
+		//grid.add(jmi);
 		this.add(grid);
 	}
 }
