@@ -102,7 +102,7 @@ public class Database
 		{
 			executeDML("INSERT INTO users " 
 					+ "VALUES (\"" + user.getUsername() + "\"," 
-					+ "aes_encrypt(\"" + user.getPassword() + "\",\"" + key + "\"));");
+					+ "aes_encrypt(\"" + user.getPassword() + "\",\"" + key + "\"),0,0);");
 			foundUser = false;
 		}
 		catch (SQLException e)
@@ -111,12 +111,6 @@ public class Database
 		}
 	}
 	
-	public ArrayList<String> getContacts(User user)
-	{
-		ArrayList<String> result = query("SELECT contact FROM contacts "
-										+ "WHERE username = \"" + user.getUsername() + "\";");
-		return result;
-	}
 	
 	public boolean getFoundUser()
 	{

@@ -16,7 +16,7 @@ public class ClientGUI extends JFrame
 
 		// Constructor that creates the client GUI.
 		client = new ChatClient();
-
+/*
 		try
 		{
 			client.openConnection();
@@ -26,13 +26,13 @@ public class ClientGUI extends JFrame
 		{
 			e.printStackTrace();
 		}
-
+*/ // removed as it doesn't scale moving forward.
 		// Create the card layout container.
 		CardLayout cardLayout = new CardLayout();
 		JPanel container = new JPanel(cardLayout);
 
 		//Create the Controllers next
-		InitialControl ic = new InitialControl(container); 
+		InitialControl ic = new InitialControl(container, client); 
 		LoginControl lc = new LoginControl(container, client); //Probably will want to pass in ChatClient here
 		CreateAccountControl cc = new CreateAccountControl(container,client);
 		StartControl sc = new StartControl(container,client);

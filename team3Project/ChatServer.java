@@ -13,11 +13,18 @@ public class ChatServer extends AbstractServer
 	private JTextArea log;
 	private JLabel status;
 	private Database database;
-
+	
+	//additions to handle multiple ppl
+	private int numPlayers;
+	private int playerspergame;
+	private int numconnectedplayers;
 	//Constructor
 	public ChatServer()
 	{
 		super(12345);
+		numPlayers=0;
+		playerspergame=5;
+		numconnectedplayers=0;
 //		this.setTimeout(500);
 	}
 	
@@ -82,10 +89,10 @@ public class ChatServer extends AbstractServer
 			else 
 			{
 				log.append("Log in for Client " + arg1.getId() + " successful\n");
-				ArrayList<String> contacts = database.getContacts(user);
+				
 				try
 				{
-					arg1.sendToClient(contacts);
+					arg1.sendToClient("Login Success");
 				} 
 				
 				catch (IOException e)
@@ -185,7 +192,8 @@ public class ChatServer extends AbstractServer
 	{
 		//Display message in the server log
 		log.append("Client " + arg1.getId() + " " + arg0.toString() + "\n");
-
+		numconnectedplayers++;
+		log.append(numconnectedplayers+ " Players Currently Connected");
 		//Send the message back to the Client by arg1
 		try 
 		{
@@ -196,5 +204,11 @@ public class ChatServer extends AbstractServer
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	protected void clientDisconnected(Object arg0, ConnectionToClient arg1) 
+	{
+		//Display message in the server log
+		log.append("Client " + arg1.getId() + " " + arg0.toString() + " Disconnected\n");
+		numconnectedplayers--;
 	}
 }

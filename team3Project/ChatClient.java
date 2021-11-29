@@ -14,7 +14,7 @@ public class ChatClient extends AbstractClient
 	private ViewRulesControl vrp;
 	private PlayerInfoControl pic;
 	private GameControl gc;
-
+	private String Username;
 	// Constructor
 	public ChatClient()
 	{
@@ -57,26 +57,23 @@ public class ChatClient extends AbstractClient
 		this.gc = gc;
 	}
 
-	//Getter for contacts
-	public ArrayList<String> getContacts()
-	{
-		return contacts;
+	public void setUsername(String username) {
+		this.Username=username;
 	}
-
+	public String getUsername() {
+		return(this.Username);
+	}
 	// Handle message from server
 	@Override
 	public void handleMessageFromServer(Object arg0)
 	{
+		String message = (String)arg0;
 		//if arg0 is null , contacts array list is null
-		if (arg0 == null)
-		{
-			contacts = null;
-			lc.loginSuccess();
-		}
+		
 		//if Server sends back array list of contacts = successful log in
-		else if (arg0 instanceof ArrayList)
+		if (message.equals("Login Success"))
 		{
-			contacts = (ArrayList<String>) arg0;
+			//arg1.sendToClient("Login Success");
 			lc.loginSuccess();
 		}
 		//if Server sends back a CreateAccountData instance = successful create account
@@ -102,6 +99,10 @@ public class ChatClient extends AbstractClient
 	}
 
 	//Connection established
+	public void connectionEstablished() {
+		
+	}
+	
 	public void connectionException (Throwable exception) 
 	{
 		System.out.println("Connection Exception Occurred");
