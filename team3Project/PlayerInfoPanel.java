@@ -19,22 +19,24 @@ public class PlayerInfoPanel extends JPanel
 
 	public PlayerInfoPanel(PlayerInfoControl pic)
 	{
-		// create labels
+		// create title
 		JLabel label = new JLabel("Player Information", JLabel.CENTER);
-		JPanel labelPanel = new JPanel();
+		JPanel titlePanel = new JPanel(new GridLayout(1, 1, 5, 5));
+		titlePanel.add(label);
+		
+		// create labels
 		JLabel name = new JLabel("Username: ", JLabel.CENTER);
-		//JLabel wins = new JLabel("Wins: ?" + db.query("SELECT wins FROM users "
-		//		+ "WHERE username = \"" + user.getUsername() + "\";"), JLabel.CENTER);
+		//JLabel wins = new JLabel("Wins: ?" + db.query("SELECT wins FROM users " + "WHERE username = \"" + user.getUsername() + "\";"), JLabel.CENTER);
 		JLabel wins = new JLabel("Wins: ?" , JLabel.CENTER);
 		JLabel losses = new JLabel("Losses: ?" , JLabel.CENTER);
 		JLabel ratio = new JLabel("W/L Ratio: ?" , JLabel.CENTER);
-		labelPanel.add(label);
+
+		// add labels to panel
+		JPanel labelPanel = new JPanel(new GridLayout(5, 1, 5, 5));
 		labelPanel.add(name);
 		labelPanel.add(wins);
 		labelPanel.add(losses);
 		labelPanel.add(ratio);
-
-		JPanel contactsPanel = new JPanel();
 
 		//Create the 3 buttons
 		back = new JButton("Back");
@@ -42,22 +44,18 @@ public class PlayerInfoPanel extends JPanel
 		logout = new JButton("Log Out");
 		logout.addActionListener(pic);
 
-		JPanel buttonsTop = new JPanel();
-		buttonsTop.add(back);
-
-		JPanel buttonBottom = new JPanel();
-		buttonBottom.add(logout);
-
-		JPanel buttonsPanel = new JPanel(new GridLayout(2, 1, 5, 5));
-		buttonsPanel.add(buttonsTop);
-		buttonsPanel.add(buttonBottom);
+		//add buttons
+		JPanel buttonsPanel = new JPanel();
+		buttonsPanel.add(back);
+		buttonsPanel.add(logout);
 
 		//Arrange the components
 		JPanel all = new JPanel();
 		all.setLayout(new BoxLayout(all, BoxLayout.Y_AXIS));
-		all.add(labelPanel);
+		labelPanel.setAlignmentX(CENTER_ALIGNMENT);
+		all.add(titlePanel);
 		all.add(Box.createVerticalStrut(10));
-		all.add(contactsPanel);
+		all.add(labelPanel);
 		all.add(Box.createVerticalStrut(10));
 		all.add(buttonsPanel);
 		this.add(all);

@@ -42,6 +42,7 @@ public class GamePanel extends JPanel
         grid.add(quit, BorderLayout.NORTH);
         grid.add(win, BorderLayout.CENTER);
         grid.add(lose, BorderLayout.CENTER);
+        this.add(grid);
 
     }
 }

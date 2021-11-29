@@ -36,25 +36,19 @@ public class StartPanel extends JPanel
 		logout = new JButton("Log Out");
 		logout.addActionListener(sc);
 
-		//Add buttons to panels
-		JPanel buttonsTop = new JPanel();
-		buttonsTop.add(start);
-		buttonsTop.add(viewRules);
-
-		JPanel buttonBottom = new JPanel();
-		buttonBottom.add(viewPlayerInfo);
-		buttonBottom.add(logout);
-
-		JPanel buttonsPanel = new JPanel(new GridLayout(2, 1, 5, 5));
-		buttonsPanel.add(buttonsTop);
-		buttonsPanel.add(buttonBottom);
+		//Add buttons to panel
+		JPanel buttonsPanel = new JPanel(new GridLayout(5, 1, 5, 5));
+		buttonsPanel.add(start);
+		buttonsPanel.add(viewRules);
+		buttonsPanel.add(viewPlayerInfo);
+		buttonsPanel.add(logout);
 
 		//Arrange the components
 		JPanel all = new JPanel();
 		all.setLayout(new BoxLayout(all, BoxLayout.Y_AXIS));
 		all.add(labelPanel);
-		all.add(Box.createVerticalStrut(10));
-		all.add(StartPanel);
+		//all.add(Box.createVerticalStrut(10));
+		//all.add(StartPanel);
 		all.add(Box.createVerticalStrut(10));
 		all.add(buttonsPanel);
 		this.add(all);
