@@ -63,8 +63,6 @@ public class LoginControl implements ActionListener
 		//After the login is successful, set the User object and display the contacts screen
 		public void loginSuccess()
 		{
-			
-
 			//Reset the log in panel
 			LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
 			loginPanel.clearContents();

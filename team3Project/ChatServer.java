@@ -111,16 +111,18 @@ public class ChatServer extends AbstractServer
 
 			User user = new User(createData.getUsername(), createData.getPassword());
 			
-			log.append("Create Account for Client " + arg1.getId() + " Successful\n");
-			user.setID();
-			database.addUser(user);
+			
+			
 			
 			//If can't find username, send CreateAccountData instance to client
-			if (!database.getFoundUser())
+			if (database.findUser(user) == false)
 			{
 				try
 				{
-					arg1.sendToClient(createData);
+					log.append("Create Account for Client " + arg1.getId() + " Successful\n");
+					user.setID();
+					database.addUser(user);
+					arg1.sendToClient("Create Success");
 				} 
 				
 				catch (IOException e)

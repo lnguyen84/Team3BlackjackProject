@@ -80,7 +80,7 @@ public class Database
 		  }
 	  }
 	  
-	public void findUser(User user) 
+	public boolean findUser(User user) 
 	{
 		ArrayList<String> result = query(
 				"SELECT username, password FROM users "
@@ -94,6 +94,7 @@ public class Database
 		{
 			foundUser = true;
 		}
+		return foundUser;
 	}
 	
 	public void addUser(User user) 

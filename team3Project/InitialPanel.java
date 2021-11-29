@@ -33,7 +33,8 @@ public class InitialPanel extends JPanel
 		buttons.add(login);
 		buttons.add(create);
 		buttons.add(connect);
-		//adding ip selection
+		
+		//adding ip selection / configure pop ups to attempt
 		JMenuBar jmb = new JMenuBar();
 		JMenu jm = new JMenu("Config Options");
 		jmb.add(jm);
@@ -50,7 +51,6 @@ public class InitialPanel extends JPanel
 		
 		grid.add(buttons,BorderLayout.SOUTH);
 
-		//grid.add(jmi);
 		this.add(grid);
 	}
 }

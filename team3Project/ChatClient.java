@@ -7,7 +7,6 @@ import ocsf.client.AbstractClient;
 public class ChatClient extends AbstractClient
 {
 	// Private data fields
-	private ArrayList<String> contacts;
 	private LoginControl lc;
 	private CreateAccountControl cc;
 	private StartControl sc;
@@ -15,6 +14,7 @@ public class ChatClient extends AbstractClient
 	private PlayerInfoControl pic;
 	private GameControl gc;
 	private String Username;
+	
 	// Constructor
 	public ChatClient()
 	{
@@ -77,7 +77,7 @@ public class ChatClient extends AbstractClient
 			lc.loginSuccess();
 		}
 		//if Server sends back a CreateAccountData instance = successful create account
-		else if (arg0 instanceof CreateAccountData)
+		else if (message.equals("Create Success"))
 		{
 			cc.createSuccess();
 		}

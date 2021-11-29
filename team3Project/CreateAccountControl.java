@@ -75,7 +75,7 @@ public class CreateAccountControl implements ActionListener
 	public void createSuccess()
 	{	
 		CardLayout cardLayout = (CardLayout)container.getLayout();
-		cardLayout.show(container, "1");
+		cardLayout.show(container, "2");
 
 		//Reset the create account panel
 		CreateAccountPanel createPanel = (CreateAccountPanel)container.getComponent(2);
