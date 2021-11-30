@@ -6,7 +6,7 @@ For application setup & proper running please follow the steps in order
  b) run the TeamProjectSQL.sql file using source to setup our table to be used
     b1) should setup 1 table, user with username,password, wins,losses
     
-2) Drag the batfiles for the project to the file directory above the package, w/in the project, but up a level from the .java & .class filesl  
+2) Drag the batfiles for the project to the file directory above the package, w/in the project, but up a level from the .java & .class files  
 3) launch the server for the game through the provided bat file.
   a) will need to enter port
   b) enter timout time
