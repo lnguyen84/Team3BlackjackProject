@@ -23,23 +23,11 @@ public class GameControl implements ActionListener
 		// Get the name of the button clicked.
 		String command = ae.getActionCommand();
 
-		// The start button takes the user to the game panel.
+		// The quit button takes the user out of the game
 		if (command.equals("Quit"))
 		{
 			CardLayout cardLayout = (CardLayout)container.getLayout();
 			cardLayout.show(container, "4");
-		}
-		
-		// The logout button takes the user to the create account panel.
-		else if (command.equals("Hit"))
-		{
-			//??
-		}
-		
-		// The logout button takes the user to the create account panel.
-		else if (command.equals("Stay"))
-		{
-			//??
 		}
 	}
 }
