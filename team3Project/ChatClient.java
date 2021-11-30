@@ -74,6 +74,7 @@ public class ChatClient extends AbstractClient
 		if (message.equals("Login Success"))
 		{
 			//arg1.sendToClient("Login Success");
+		
 			lc.loginSuccess();
 		}
 		//if Server sends back a CreateAccountData instance = successful create account

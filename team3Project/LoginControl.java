@@ -41,7 +41,7 @@ public class LoginControl implements ActionListener
 			{
 				LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
 				LoginData data = new LoginData(loginPanel.getUsername(), loginPanel.getPassword());
-
+				
 				if (data.getUsername().equals("") || data.getPassword().equals(""))
 				{
 					displayError("You must enter a username and password.");
@@ -50,7 +50,10 @@ public class LoginControl implements ActionListener
 
 				try
 				{
+					client.setUsername(data.getUsername());
+					
 					client.sendToServer(data);
+					
 				} 
 				
 				catch (IOException e)

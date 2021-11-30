@@ -19,6 +19,8 @@ public class PlayerInfoPanel extends JPanel
 
 	public PlayerInfoPanel(PlayerInfoControl pic)
 	{
+		
+		
 		// create title
 		JLabel label = new JLabel("Player Information", JLabel.CENTER);
 		JPanel titlePanel = new JPanel(new GridLayout(1, 1, 5, 5));
