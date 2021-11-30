@@ -20,13 +20,14 @@ public class ServerGUI extends JFrame
 	private JButton close;
 	private JButton stop;
 	private JButton quit;
+	private JComboBox numOfPlayers;
 
 	private ChatServer server;
 
 	public ServerGUI()
 	{
 		server = new ChatServer();
-		
+
 		try 
 		{
 			Database database = new Database();
@@ -54,7 +55,7 @@ public class ServerGUI extends JFrame
 		JPanel infoPanel = new JPanel(new FlowLayout());
 
 		//--- Create grid for text fields
-		JPanel grid = new JPanel(new GridLayout(textFields.length,2,5,5));
+		JPanel grid = new JPanel(new GridLayout(textFields.length+1,2,5,5));
 		for (int i = 0; i < textFields.length; i++)
 		{
 			JLabel label = new JLabel(labels[i], JLabel.RIGHT);
@@ -65,8 +66,17 @@ public class ServerGUI extends JFrame
 			grid.add(textFields[i]);
 		}
 
+		JLabel selectPlayersLabel = new JLabel("# of Players: ");
+		selectPlayersLabel.setAlignmentX(RIGHT_ALIGNMENT);
+		String players[] = {"1","2","3","4","5"};
+		numOfPlayers = new JComboBox(players);
+		//numOfPlayers.getSelectedItem();
+		grid.add(selectPlayersLabel);
+		grid.add(numOfPlayers);
+
 		//Add the grid to the info panel
 		infoPanel.add(grid);
+		//infoPanel.add(grid2);
 
 		//---- Panel for server log ----
 		JPanel logPanel = new JPanel(new FlowLayout());
@@ -122,8 +132,9 @@ public class ServerGUI extends JFrame
 					server.setPort(Integer.parseInt(textFields[0].getText()));
 					server.setTimeout(Integer.parseInt(textFields[1].getText()));
 					server.listen();
+					server.setNumOfPlayers(numOfPlayers.getSelectedIndex() + 1);
 				} 
-				
+
 				catch(IOException e1)
 				{
 					e1.printStackTrace();
@@ -145,7 +156,7 @@ public class ServerGUI extends JFrame
 					{
 						server.close();
 					} 
-					
+
 					catch (IOException e1) 
 					{
 						e1.printStackTrace();

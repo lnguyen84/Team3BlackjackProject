@@ -50,6 +50,18 @@ public class ChatServer extends AbstractServer
 		this.status = status;
 	}
 	
+	// Setter/Getter for the status
+	public void setNumOfPlayers(int NumPlayers)
+	{
+		this.numPlayers = NumPlayers;
+	}
+	
+	// Setter/Getter for the status
+	public int getNumOfPlayers()
+	{
+		return numPlayers;
+	}
+	
 	public JLabel getStatus()
 	{
 		return status;
@@ -60,12 +72,6 @@ public class ChatServer extends AbstractServer
 	protected void handleMessageFromClient(Object arg0, ConnectionToClient arg1)
 	{
 		//If client sends log in info to server, checking username and password
-		String message = (String) arg0.toString();
-		System.out.println(message);
-		if (message.equals("Connected")) {
-			System.out.println("w/in server");
-			this.clientConnected(arg0, arg1);
-		}
 		if (arg0 instanceof LoginData)
 		{
 			log.append("Log In info from Client " + arg1.getId() + "\n");
@@ -116,9 +122,6 @@ public class ChatServer extends AbstractServer
 			CreateAccountData createData = (CreateAccountData)arg0;
 
 			User user = new User(createData.getUsername(), createData.getPassword());
-			
-			
-			
 			
 			//If can't find username, send CreateAccountData instance to client
 			if (database.findUser(user) == false)
@@ -198,7 +201,6 @@ public class ChatServer extends AbstractServer
 	//Client Connected
 	protected void clientConnected(Object arg0, ConnectionToClient arg1) 
 	{
-		System.out.println("tsets");
 		//Display message in the server log
 		log.append("Client " + arg1.getId() + " " + arg0.toString() + "\n");
 		numconnectedplayers++;
