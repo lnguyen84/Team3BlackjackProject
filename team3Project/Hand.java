@@ -36,6 +36,10 @@ public class Hand { // need to be able to handle a hand of cards for both player
 	public void addCard(card card) {
 		heldhand[numberheld++]=card;
 	}
+	
+	public card getCard(int index) {
+		return heldhand[index];
+	}
 
 	public void clearHand() {
 		// will overwrite itself moving forward

@@ -24,7 +24,7 @@ public class StartControl implements ActionListener
 		String command = ae.getActionCommand();
 
 		// The start button takes the user to the game panel.
-		if (command.equals("Start"))
+		if (command.equals("Join Game"))
 		{
 			CardLayout cardLayout = (CardLayout)container.getLayout();
 			cardLayout.show(container, "7");

@@ -16,17 +16,7 @@ public class ClientGUI extends JFrame
 
 		// Constructor that creates the client GUI.
 		client = new ChatClient();
-/*
-		try
-		{
-			client.openConnection();
-		}
-
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-*/ // removed as it doesn't scale moving forward.
+		
 		// Create the card layout container.
 		CardLayout cardLayout = new CardLayout();
 		JPanel container = new JPanel(cardLayout);
@@ -49,7 +39,6 @@ public class ClientGUI extends JFrame
 	    client.setPlayerInfoControl(pic);
 	    
 	    client.setGameControl(gc);
-	    //server.setGameControl(gc);
 	    
 		// Create the four views. (need the controller to register with the Panels)
 		JPanel view1 = new InitialPanel(ic);

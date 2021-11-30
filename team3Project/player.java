@@ -42,14 +42,6 @@ public class player {
 		return hand.calculateTotal();
 	}
 	
-	public boolean hasBlackJack() { 
-		return (hand.calculateTotal() == 21 && hand.getNumberHeld() == 2);
-	}
-	
-	public boolean didBust() {
-		return (hand.calculateTotal() > 21);
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -67,7 +59,7 @@ public class player {
 	}
 	
 	public void requestPlayerAction() throws IOException {
-		this.ctc.sendToClient("ACTION: It is your turn to play.");
+		this.ctc.sendToClient("Next Players Turn");
 	}
 	
 	public void setNumber(int n) {

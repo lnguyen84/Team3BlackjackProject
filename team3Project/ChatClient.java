@@ -60,9 +60,11 @@ public class ChatClient extends AbstractClient
 	public void setUsername(String username) {
 		this.Username=username;
 	}
+	
 	public String getUsername() {
 		return(this.Username);
 	}
+	
 	// Handle message from server
 	@Override
 	public void handleMessageFromServer(Object arg0)
@@ -74,7 +76,6 @@ public class ChatClient extends AbstractClient
 		if (message.equals("Login Success"))
 		{
 			//arg1.sendToClient("Login Success");
-		
 			lc.loginSuccess();
 		}
 		//if Server sends back a CreateAccountData instance = successful create account

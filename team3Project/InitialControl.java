@@ -42,21 +42,14 @@ public class InitialControl implements ActionListener
 		    }
 		 //added controls for connect button
 		 else if (command.equals("Connect")){
-			
-			 
-			 try {
-				
-				client.openConnection();
-				if (client.isConnected()){
-					System.out.println("connected");
-					client.sendToServer("Connected");
+			 try
+				{
+					client.openConnection();
+				} catch (IOException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-					
-				
 		 }
 		 //
 		 else if(ae.getSource() instanceof JMenuItem) {

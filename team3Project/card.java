@@ -8,13 +8,16 @@ public class card {
 		suit=' ';
 		value=0;
 	}
+	
 	public card(char suit, int value) {
 		this.suit=suit;
 		this.value=value;
 	}
+	
 	public String toString() {
 		return getSuitName() + " "+this.value;
 	}
+	
 	public String getSuitName() {
 		String suit;
 		
@@ -36,9 +39,11 @@ public class card {
 		
 		return (suit);
 	}
+	
 	public char getSuit() {
 		return suit;
 	}
+	
 	public String getValueName(){
 
 		String name = "Unknown";
@@ -86,10 +91,6 @@ public class card {
 		else if (this.value == 13) {
 
 			name = "King";
-	
-	
-	
-	
 		}	
 		return name;
 	}
@@ -101,10 +102,8 @@ public class card {
 	public boolean compareSuit(card card) {
 		return this.suit == card.getSuit();
 	}
+	
 	public boolean compareTo(card card) {
 		return this.suit == card.getSuit() && this.value == card.getValue();
 	}
-	
-	
-	
 }//end card class

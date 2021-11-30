@@ -27,7 +27,7 @@ public class StartPanel extends JPanel
 		JPanel StartPanel = new JPanel();
 
 		//Create the buttons and add action listeners
-		start = new JButton("Start");
+		start = new JButton("Join Game");
 		start.addActionListener(sc);
 		viewRules = new JButton("View Rules");	
 		viewRules.addActionListener(sc);

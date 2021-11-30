@@ -66,14 +66,11 @@ public class deck {
 			}
 		}
 	}
+	
 	public card nextCard() throws Exception {
 		if(nextCardIndex <0 || nextCardIndex > 51) {
 			throw new Exception("No Next Card Available, Deck Empty");
 		}
-		
 		return deck[nextCardIndex++];
-		
 	}
-	
-	
 }//end class deck

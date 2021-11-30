@@ -1,6 +1,7 @@
 package team3Project;
 
 import java.awt.GridLayout;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -8,8 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ocsf.server.ConnectionToClient;
+
 public class PlayerInfoPanel extends JPanel
 {
+	private ConnectionToClient ctc;
+	private ChatServer cs;
+	
 	private JButton back;
 	private JButton logout;
 
@@ -19,14 +25,13 @@ public class PlayerInfoPanel extends JPanel
 
 	public PlayerInfoPanel(PlayerInfoControl pic)
 	{
-		
-		
 		// create title
 		JLabel label = new JLabel("Player Information", JLabel.CENTER);
 		JPanel titlePanel = new JPanel(new GridLayout(1, 1, 5, 5));
 		titlePanel.add(label);
 		
 		// create labels
+			
 		JLabel name = new JLabel("Username: ", JLabel.CENTER);
 		//JLabel wins = new JLabel("Wins: ?" + db.query("SELECT wins FROM users " + "WHERE username = \"" + user.getUsername() + "\";"), JLabel.CENTER);
 		JLabel wins = new JLabel("Wins: ?" , JLabel.CENTER);

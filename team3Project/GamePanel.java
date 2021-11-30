@@ -33,7 +33,7 @@ public class GamePanel extends JPanel
 		playerScore.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		dealerScore.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 
-		//Creates hit/stand/quit buttons
+		//Creates hit/stand/quit buttons and calls methods
 		play = new JButton("Play");
 		play.addActionListener(new ActionListener() 
 		{
@@ -87,11 +87,10 @@ public class GamePanel extends JPanel
 		this.add(grid);
 	}
 
-	private void Play() {
+	public void Play() {
 		//System.out.println("Listen Button Pressed");
 		status.setText("Game " + games++);
 		play.setVisible(false);
-		//gc.start();
 		player1 = new player();
 		dealer = new player();
 		Deck = new deck();
@@ -118,7 +117,7 @@ public class GamePanel extends JPanel
 		dealerScore.setText(" Dealer Score: " + dealer.hand.calculateTotal());//shows innitial scores
 	}
 
-	private void Hit() {
+	public void Hit() {
 		try {
 			player1.hand.addCard(Deck.nextCard());
 		} catch (Exception e2) {
@@ -138,7 +137,7 @@ public class GamePanel extends JPanel
 		}
 	}
 
-	private void Stand() {
+	public void Stand() {
 		while(dealer.hand.calculateTotal() < 17)
 		{
 			try {
@@ -151,11 +150,19 @@ public class GamePanel extends JPanel
 		playerScore.setText(" Your Score: " + player1.hand.calculateTotal());
 		dealerScore.setText(" Dealer Score: " + dealer.hand.calculateTotal());
 		if(player1.hand.calculateTotal() > dealer.hand.calculateTotal() && player1.hand.calculateTotal() <= 21)
+		{
 			status.setText("You Win!");
+			if(player1.hand.calculateTotal() == 21)
+				status.setText("Blackjack! You Win!");
+		}
 		else if(player1.hand.calculateTotal() <= 21 && dealer.hand.calculateTotal() > 21)
 			status.setText("You Win!");
 		else
+		{
 			status.setText("You Lose!");
+			if(player1.hand.calculateTotal() == 21 && dealer.hand.calculateTotal() == 21)
+				status.setText("Blackjack! But.. house wins");
+		}
 
 		play.setVisible(true);
 		play.setText("Play Again");

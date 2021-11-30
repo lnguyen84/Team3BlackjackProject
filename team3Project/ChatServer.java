@@ -18,6 +18,8 @@ public class ChatServer extends AbstractServer
 	private int numPlayers;
 	private int playerspergame;
 	private int numconnectedplayers;
+	//private GamePanel gp;
+	private GameControl gc;
 	//Constructor
 	public ChatServer()
 	{
@@ -25,7 +27,6 @@ public class ChatServer extends AbstractServer
 		numPlayers=0;
 		playerspergame=5;
 		numconnectedplayers=0;
-//		this.setTimeout(500);
 	}
 	
 	void setDatabase(Database database)
@@ -65,6 +66,11 @@ public class ChatServer extends AbstractServer
 	public JLabel getStatus()
 	{
 		return status;
+	}
+	
+	public void setGameControl(GameControl gc)
+	{
+		this.gc = gc;
 	}
 
 	// Handle Message From Client
@@ -204,7 +210,7 @@ public class ChatServer extends AbstractServer
 		//Display message in the server log
 		log.append("Client " + arg1.getId() + " " + arg0.toString() + "\n");
 		numconnectedplayers++;
-		log.append(numconnectedplayers+ " Players Currently Connected");
+		log.append(numconnectedplayers + " Players Currently Connected");
 		//Send the message back to the Client by arg1
 		try 
 		{
